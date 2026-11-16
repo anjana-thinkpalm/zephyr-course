@@ -1,0 +1,6 @@
+board:
+  name: l5_ra6m4
+  full_name: L5 Custom RA6M4 Board
+  vendor: renesas
+  socs:
+    - name: r7fa6m4af3cfb

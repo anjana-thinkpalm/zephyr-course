@@ -1,0 +1,13 @@
+identifier: l5_ra6m4
+name: L5 Custom RA6M4 Board
+type: mcu
+arch: arm
+ram: 256
+flash: 1024
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - gpio
+  - watchdog
+vendor: renesas

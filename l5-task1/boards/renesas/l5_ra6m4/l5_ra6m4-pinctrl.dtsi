@@ -1,0 +1,15 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Minimal UART pin configuration derived from the Zephyr EK-RA6M4 board.
+ * SCI0 TX/RX are routed to P4_11/P4_10 on the EK-RA6M4.
+ */
+
+&pinctrl {
+    sci0_default: sci0_default {
+        group1 {
+            psels = <RA_PSEL(RA_PSEL_SCI_0, 4, 11)>,
+                    <RA_PSEL(RA_PSEL_SCI_0, 4, 10)>;
+        };
+    };
+};
