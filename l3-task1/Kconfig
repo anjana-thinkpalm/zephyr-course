@@ -1,36 +1,34 @@
 
-mainmenu "LED Configuration"
-
 menuconfig LED_SUBSYSTEM
     bool "LED Subsystem"
-    default y
-    help
-      Enable the LED subsystem.
 
 if LED_SUBSYSTEM
 
 choice LED_BLINK_SLEEP_TIME
     prompt "LED blink sleep time"
-    default LED_BLINK_MEDIUM
+    default LED_SLEEP_MEDIUM
 
-config LED_BLINK_FAST
+config LED_SLEEP_SHORT
     bool "500ms (fast)"
 
-config LED_BLINK_MEDIUM
+config LED_SLEEP_MEDIUM
     bool "1s (medium)"
 
-config LED_BLINK_SLOW
+config LED_SLEEP_LONG
     bool "2s (slow)"
 
 endchoice
 
-menuconfig ADVANCED_LED_SETTINGS
-    bool "Advanced LED settings"
-    default n
-    help
-      Enable advanced LED settings.
+config LED_BLINK_SLEEP_MS
+    int
+    default 500 if LED_SLEEP_SHORT
+    default 1000 if LED_SLEEP_MEDIUM
+    default 2000 if LED_SLEEP_LONG
 
-if ADVANCED_LED_SETTINGS
+menuconfig LED_ADVANCED_SETTINGS
+    bool "Advanced LED settings"
+
+if LED_ADVANCED_SETTINGS
 
 config LED_BRIGHTNESS
     int "LED brightness (0-100)"
@@ -39,21 +37,22 @@ config LED_BRIGHTNESS
 
 config LED_FADE_DURATION
     int "LED fade duration (ms)"
-    range 0 10000
+    range 0 5000
     default 500
 
-menu "Expert settings"
+endif
 
-config LED_DEBUG
+menu "Expert settings"
+    visible if LED_ADVANCED_SETTINGS
+
+config LED_DEBUGGING
     bool "Enable LED debugging"
     default n
 
-config LED_CUSTOM_BLINK_PATTERN
+config LED_CUSTOM_BLINK
     bool "Custom blink pattern"
     default n
 
 endmenu
-
-endif
 
 endif
