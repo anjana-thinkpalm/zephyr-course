@@ -1,0 +1,9 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+    led_sensor0: led_sensor {
+        compatible = "renesas,led-sensor";
+        gpios = <&ioport4 15 GPIO_ACTIVE_HIGH>;
+        status = "okay";
+    };
+};
