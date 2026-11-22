@@ -1,0 +1,16 @@
+
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+};
+
+&pinctrl {
+    sci0_default: sci0_default {
+        group1 {
+            psels = <RA_PSEL(RA_PSEL_SCI_0, 4, 11)>,
+                    <RA_PSEL(RA_PSEL_SCI_0, 4, 10)>;
+        };
+    };
+};
