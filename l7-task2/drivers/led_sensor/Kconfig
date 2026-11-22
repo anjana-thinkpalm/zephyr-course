@@ -1,0 +1,5 @@
+config LED_SENSOR
+    bool "GPIO LED sensor driver"
+    depends on GPIO
+    help
+      Enable the simple GPIO LED sensor driver.
